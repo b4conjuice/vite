@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hooks</title>
+    <link rel="stylesheet" href="../build/tailwind.css" />
+  </head>
+  <body>
+    <div class="flex flex-col min-h-screen p-4 space-y-4">
+      <h1>hooks</h1>
+    </div>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script>
+      function useState(initialValue) {
+        var _val = initialValue
+        function state() {
+          return _val
+        }
+        function setState(newVal) {
+          _val = newVal
+        }
+        return [state, setState]
+      }
+      // var [foo, setFoo] = useState(0)
+      // console.log('foo(): ', foo())
+      // setFoo(1)
+      // console.log('foo(): ', foo())
+      function Counter() {
+        const [count, setCount] = useState(0)
+        return {
+          click: () => setCount(count() + 1),
+          render: () => console.log('render:', { count: count() }),
+        }
+      }
+      const C = Counter()
+      C.render()
+      C.click()
+      C.render()
+    </script>
+  </body>
+</html>

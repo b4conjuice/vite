@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <title>js</title>
+    <link rel="stylesheet" href="build/tailwind.css" />
+  </head>
+  <body>
+    <div class="flex flex-col min-h-screen p-4 space-y-4">
+      <h1
+        class="flex justify-center text-3xl font-extrabold leading-9 text-center text-blue-900  sm:text-4xl sm:leading-10"
+      >
+        <div class="first-letter:text-blue-600">java</div>
+        <div class="first-letter:text-blue-600">script</div>
+      </h1>
+      <nav>
+        <ul x-data="navData()" class="flex space-x-4">
+          <template hidden x-for="item in nav" :key="item.url">
+            <li>
+              <a
+                :href="item.url"
+                x-text="item.label"
+                class="text-blue-900 hover:text-blue-600"
+              ></a>
+            </li>
+          </template>
+        </ul>
+      </nav>
+      <main class="flex flex-wrap gap-4" x-data="sections">
+        <template hidden x-for="section in sections" :key="section.url">
+          <section class="p-2 space-y-2 border-2 border-gray-300 rounded">
+            <h2>
+              <a
+                :href="section.url"
+                x-text="section.title"
+                class="text-2xl font-bold text-blue-600 hover:text-blue-900"
+              ></a>
+            </h2>
+          </section>
+        </template>
+      </main>
+    </div>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script>
+      const navData = () => ({
+        nav: ['home', 'articles'].map(label => ({
+          label,
+          url: label === 'home' ? '/' : `/${label.replaceAll(' ', '-')}/`,
+        })),
+      })
+      const sections = [
+        '3d button',
+        'jperm',
+        'alpine',
+        'joe doe',
+        'vite',
+        'hooks',
+        'tailwind shades',
+        'qbtimer',
+        'persist',
+        'template',
+      ].map(title => ({
+        title,
+        url: title === 'home' ? '/' : `/${title.replaceAll(' ', '-')}/`,
+      }))
+    </script>
+  </body>
+</html>

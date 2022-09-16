@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tailwind shades</title>
+    <link rel="stylesheet" href="../build/tailwind.css" />
+  </head>
+  <body>
+    <div
+      class="
+        flex flex-col
+        min-h-screen
+        p-4
+        space-y-4
+        bg-cb-blue-900
+        text-cb-white
+      "
+    >
+      <h1
+        class="
+          text-3xl
+          font-extrabold
+          leading-9
+          text-center
+          sm:text-4xl
+          sm:leading-10
+          flex
+          justify-center
+        "
+      >
+        tailwind shades
+        <!-- <div class="first-letter:text-cb-blue-400">tailwind</div>
+        <div class="first-letter:text-cb-blue-400">shades</div> -->
+      </h1>
+      <main class="flex space-x-4" x-data="sections">
+        <template hidden x-for="section in sections" :key="section.url">
+          <section
+            class="
+              p-2
+              rounded
+              space-y-2
+              bg-gradient-to-r
+              from-cb-pink-500
+              to-cb-pink-700
+            "
+          >
+            <h2>
+              <a
+                :href="section.url"
+                x-text="section.title"
+                class="
+                  text-2xl
+                  font-bold
+                  text-cb-yellow-500
+                  hover:text-cb-yellow-400
+                "
+              ></a>
+            </h2>
+            <p x-text="section.description"></p>
+          </section>
+        </template>
+      </main>
+    </div>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script>
+      const sections = [
+        {
+          title: 'building a magical 3d button',
+          url: 'https://www.joshwcomeau.com/animation/3d-button',
+          description: 'blog post by josh comeau',
+        },
+        {
+          title: 'john doe',
+          url: 'https://john-doe.neocities.org',
+          description: 'databaseless, javascriptless, buildfree setup',
+        },
+      ]
+    </script>
+  </body>
+</html>

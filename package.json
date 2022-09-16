@@ -1,0 +1,18 @@
+{
+  "version": "0.0.0",
+  "scripts": {
+    "css": "npx tailwindcss -i ./tailwind.css -o ./build/tailwind.css --jit --purge \"./**/*.html\" -w",
+    "dev": "vite --port 8483 & npm run css",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "eslint-config-baconjuice": "^1.0.3",
+    "vite": "^2.3.7"
+  },
+  "eslintConfig": {
+    "extends": [
+      "baconjuice"
+    ]
+  }
+}

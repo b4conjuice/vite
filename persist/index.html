@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>persist</title>
+    <link rel="stylesheet" href="../build/tailwind.css" />
+  </head>
+  <body>
+    <div
+      x-data="{ test: $persist(0) }"
+      class="flex flex-col min-h-screen p-4 space-y-4"
+    >
+      <h1>persist</h1>
+      <div x-text="test"></div>
+      <button @click="test+=1">step</button>
+    </div>
+    <script
+      defer
+      src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </body>
+</html>

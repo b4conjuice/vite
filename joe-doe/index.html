@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="stylesheet" href="../build/tailwind.css" />
+    <title>joe doe</title>
+    <style>
+      section {
+        padding: calc(6em + 5vw) 5vw 8vw 5vw;
+        display: none;
+        position: absolute;
+        top: 20;
+        min-height: 100vh;
+        width: 100%;
+        background: var(--bgcolor);
+      }
+      section:target {
+        /* Show section */
+        display: block;
+      }
+      section#home {
+        /* Show #home by default */
+        /* display: block; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex flex-col min-h-screen p-4 space-y-4">
+      <header class="relative z-[2] flex">
+        <h1 class="flex-grow">joe doe</h1>
+        <nav>
+          <ul class="flex space-x-4">
+            <li><a href="#nba">🏀</a></li>
+            <li><a href="#games">🎮</a></li>
+            <li><a href="#dev">👨‍💻</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <section id="home">
+          <h2>home</h2>
+        </section>
+        <section id="nba">
+          <h2>curry greatest peaks</h2>
+          <ol>
+            <li>release speed</li>
+            <li>range</li>
+            <li>ball handling</li>
+            <li>movement</li>
+          </ol>
+        </section>
+        <section id="games">
+          <h2>metagame</h2>
+          <ol>
+            <li>beautiful accident</li>
+            <li>the kid</li>
+            <li>the limiter</li>
+            <li>fire on the mountain</li>
+            <li>the tao of smash</li>
+            <li>sunday in america</li>
+            <li>pantheon’s fall part 1</li>
+            <li>pantheon’s fall part 2</li>
+          </ol>
+        </section>
+        <section id="dev">
+          <h2>stack</h2>
+          <ul>
+            <li>react</li>
+            <li>next.js</li>
+            <li>tailwind.css</li>
+            <li>swr</li>
+            <li>firebase</li>
+            <li>react testing library</li>
+            <li>magic auth</li>
+            <li>vercel</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

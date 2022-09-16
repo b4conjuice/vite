@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="stylesheet" href="../build/tailwind.css" />
+    <title>Algorithms: 3x3 OLL</title>
+  </head>
+  <body>
+    <div class="flex flex-col min-h-screen">
+      <nav class="bg-[#303030]">
+        <ul
+          class="flex justify-center space-x-8 text-white h-[54px] items-center"
+        >
+          <li>3x3 Tutorials</li>
+          <li>Other Tutorials</li>
+          <li>Algorithms</li>
+        </ul>
+      </nav>
+      <main class="flex flex-col px-8 py-2 pb-8 h-[calc(100vh-54px)]">
+        <nav>
+          <ul class="flex items-center justify-center space-x-8">
+            <li>
+              <button x-data @click="console.log('test')">Algorithms</button>
+            </li>
+            <li><button>Trainer</button></li>
+          </ul>
+        </nav>
+        <div class="text-center">3x3 OLL</div>
+        <div
+          class="
+            flex flex-col flex-grow
+            h-full
+            border border-black
+            divide-y divide-black
+          "
+        >
+          <div class="w-full py-2 text-xl text-center">
+            U L R' F' R U2 R' F' L F' R B2 F2 R2 D L2 B2 F2 R2
+          </div>
+          <div class="flex flex-grow w-full divide-x divide-black">
+            <div class="flex flex-col w-1/2 text-center">
+              <a class="block py-2 text-[#0079be] hover:text-[#00a1dc]"
+                >5 cases selected</a
+              >
+              <div
+                id="latest"
+                class="
+                  flex
+                  items-center
+                  justify-center
+                  flex-grow
+                  text-6xl
+                  font-bold
+                "
+              ></div>
+            </div>
+            <div class="flex flex-col w-1/4 h-auto">
+              <ul
+                id="times"
+                class="
+                  flex flex-wrap
+                  justify-center
+                  flex-grow
+                  h-0
+                  gap-2
+                  overflow-y-scroll
+                "
+              ></ul>
+            </div>
+            <div class="w-1/4 py-2">
+              <table class="w-full">
+                <thead>
+                  <tr>
+                    <th>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="block w-5 h-5 mx-auto"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </th>
+                    <th>current</th>
+                    <th>best</th>
+                  </tr>
+                </thead>
+                <tbody id="stats"></tbody>
+              </table>
+              <div id="solves" class="font-bold text-center"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script type="module" src="./jperm.js"></script>
+  </body>
+</html>

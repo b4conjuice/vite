@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>template</title>
+    <link rel="stylesheet" href="../build/tailwind.css" />
+  </head>
+  <body>
+    <div class="flex flex-col min-h-screen p-4 space-y-4">
+      <nav>
+        <ul x-data="navData()" class="flex space-x-4">
+          <template hidden x-for="item in nav" :key="item.url">
+            <li>
+              <a
+                :href="item.url"
+                x-text="item.label"
+                class="text-blue-900 hover:text-blue-600"
+              ></a>
+            </li>
+          </template>
+        </ul>
+      </nav>
+      <main>
+        <h1>articles</h1>
+        <div class="flex space-x-4" x-data="sections">
+          <template hidden x-for="section in sections" :key="section.url">
+            <section class="p-2 space-y-2 border-2 border-gray-300 rounded">
+              <h2>
+                <a
+                  :href="section.url"
+                  x-text="section.title"
+                  class="text-2xl font-bold text-blue-600 hover:text-blue-900"
+                ></a>
+              </h2>
+              <p x-text="section.description"></p>
+            </section>
+          </template>
+        </div>
+      </main>
+    </div>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script>
+      const navData = () => ({
+        nav: ['home', 'articles'].map(label => ({
+          label,
+          url: label === 'home' ? '/' : `/${label.replaceAll(' ', '-')}/`,
+        })),
+      })
+      const sections = [
+        {
+          title: 'building a magical 3d button',
+          url: 'https://www.joshwcomeau.com/animation/3d-button',
+          description: 'blog post by josh comeau',
+        },
+        {
+          title: 'john doe',
+          url: 'https://john-doe.neocities.org',
+          description: 'databaseless, javascriptless, buildfree setup',
+        },
+        {
+          title: 'interactive guide to css transitions',
+          url: 'https://www.joshwcomeau.com/animation/css-transitions/',
+          description: 'another blog post by josh comeau',
+        },
+        // {
+        //   title: '',
+        //   url: '',
+        //   description: '',
+        // },
+      ]
+    </script>
+  </body>
+</html>

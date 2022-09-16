@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>alpine</title>
+    <link rel="stylesheet" href="../build/tailwind.css" />
+  </head>
+  <body>
+    <div class="flex flex-col min-h-screen p-4 space-y-4">
+      <h1>
+        <a
+          class="text-blue-900 hover:text-blue-600"
+          href="https://alpinejs.dev/alpine-101"
+          >alpine 101</a
+        >
+      </h1>
+      <div class="flex space-x-4">
+        <section class="bg-gray-300 p-2 rounded space-y-2">
+          <h2 class="font-semibold">counter</h2>
+          <div x-data="{ count: 0 }">
+            <button
+              type="button"
+              class="
+                bg-blue-900
+                border-none
+                rounded-lg
+                cursor-pointer
+                group
+                text-lg
+              "
+              x-on:click="count++"
+            >
+              <span
+                class="
+                  block
+                  px-2
+                  py-2
+                  text-lg text-gray-100
+                  transform
+                  bg-blue-600
+                  rounded-lg
+                  translate-y-[-4px]
+                  group-active:translate-y-[-2px]
+                  group-hover:translate-y-[-6px]
+                  group-hover:duration-[250ms]
+                  group-active:duration-[34ms]
+                  duration-[600ms]
+                  ease-[cubic-bezier(.3,.7,.4,1)]
+                  hover:ease-[cubic-bezier(.3,.7,.4,1.5)]
+                "
+              >
+                increment
+              </span>
+            </button>
+            <span x-text="count"></span>
+          </div>
+        </section>
+        <section class="bg-gray-300 p-2 rounded space-y-2">
+          <h2 class="font-semibold">dropdown</h2>
+          <div x-data="{ open: false }">
+            <button
+              type="button"
+              class="
+                bg-blue-900
+                border-none
+                rounded-lg
+                cursor-pointer
+                group
+                text-lg
+              "
+              @click="open = !open"
+            >
+              <span
+                class="
+                  block
+                  px-2
+                  py-2
+                  text-lg text-gray-100
+                  transform
+                  bg-blue-600
+                  rounded-lg
+                  translate-y-[-4px]
+                  group-active:translate-y-[-2px]
+                  group-hover:translate-y-[-6px]
+                  group-hover:duration-[250ms]
+                  group-active:duration-[34ms]
+                  duration-[600ms]
+                  ease-[cubic-bezier(.3,.7,.4,1)]
+                  hover:ease-[cubic-bezier(.3,.7,.4,1.5)]
+                "
+              >
+                toggle</span
+              >
+            </button>
+            <div x-show="open" @click.outside="open = false">contents...</div>
+          </div>
+        </section>
+        <section class="border-2 border-gray-300 p-2 rounded space-y-2">
+          <h2 class="font-semibold">search input</h2>
+          <div
+            class="space-y-2"
+            x-data="{
+            search: '',
+            items: ['foo', 'bar', 'baz'],
+            get filteredItems() {
+              return this.items.filter(i => i.includes(this.search))
+            }
+          }"
+          >
+            <div class="border-b-2 focus-within:border-blue-900 relative">
+              <input
+                x-model="search"
+                class="
+                  block
+                  w-full
+                  appearance-none
+                  focus:outline-none
+                  bg-transparent
+                  peer
+                "
+                type="text"
+                name="search"
+                placeholder=" "
+              />
+              <label
+                class="
+                  absolute
+                  top-0
+                  z-[-1]
+                  peer-focus-within:text-blue-600
+                  peer-focus-within:scale-75
+                  peer-focus-within:-translate-y-4
+                  duration-300
+                  origin-[0]
+                "
+                for="search"
+                >search</label
+              >
+            </div>
+            <ul class="space-y-2">
+              <template x-for="item in filteredItems" :key="item">
+                <li x-text="item"></li>
+              </template>
+            </ul>
+          </div>
+        </section>
+        <section class="border-2 border-gray-300 p-2 rounded space-y-2">
+          <h2 class="font-semibold">tabs</h2>
+          <div x-data="{open: 'algorithms'}">
+            <ul class="flex space-x-2">
+              <li>
+                <button
+                  type="button"
+                  class="
+                    bg-blue-900
+                    border-none
+                    rounded-lg
+                    cursor-pointer
+                    group
+                    text-lg
+                  "
+                  @click="open = 'algorithms'"
+                >
+                  <span
+                    class="
+                      block
+                      px-2
+                      py-2
+                      text-lg text-gray-100
+                      transform
+                      bg-blue-600
+                      rounded-lg
+                      translate-y-[-4px]
+                      group-active:translate-y-[-2px]
+                      group-hover:translate-y-[-6px]
+                      group-hover:duration-[250ms]
+                      group-active:duration-[34ms]
+                      duration-[600ms]
+                      ease-[cubic-bezier(.3,.7,.4,1)]
+                      hover:ease-[cubic-bezier(.3,.7,.4,1.5)]
+                    "
+                  >
+                    algorithms</span
+                  >
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  class="
+                    bg-blue-900
+                    border-none
+                    rounded-lg
+                    cursor-pointer
+                    group
+                    text-lg
+                  "
+                  @click="open = 'trainer'"
+                >
+                  <span
+                    class="
+                      block
+                      px-2
+                      py-2
+                      text-lg text-gray-100
+                      transform
+                      bg-blue-600
+                      rounded-lg
+                      translate-y-[-4px]
+                      group-active:translate-y-[-2px]
+                      group-hover:translate-y-[-6px]
+                      group-hover:duration-[250ms]
+                      group-active:duration-[34ms]
+                      duration-[600ms]
+                      ease-[cubic-bezier(.3,.7,.4,1)]
+                      hover:ease-[cubic-bezier(.3,.7,.4,1.5)]
+                    "
+                  >
+                    trainer</span
+                  >
+                </button>
+              </li>
+            </ul>
+            <div x-show='open === "algorithms"'>algorithms</div>
+            <div x-show='open === "trainer"'>trainer</div>
+          </div>
+        </section>
+        <section class="border-2 border-gray-300 p-2 rounded space-y-2">
+          <h2 class="font-semibold">get port</h2>
+          <div
+            class="space-y-2"
+            x-data="{
+            text: '',
+            items: ['foo', 'bar', 'baz'],
+            get port() {
+              const numberToLetter = {
+                2: ['a', 'b', 'c'],
+                3: ['d', 'e', 'f'],
+                4: ['g', 'h', 'i'],
+                5: ['j', 'k', 'l'],
+                6: ['m', 'n', 'o'],
+                7: ['p', 'q', 'r', 't'],
+                8: ['t', 'u', 'v'],
+                9: ['w', 'x', 'y', 'z'],
+              };
+              const port = [...this.text]
+                .map((char) => {
+                  const entry = Object.entries(numberToLetter).find(
+                    ([key, value]) => {
+                      if (value.some((v) => v === char)) {
+                        return true;
+                      } else return false;
+                    }
+                  );
+                  const [num] = entry ?? []
+                  return num ?? ' ';
+                })
+                .join('');
+              return port;
+            },
+          }"
+          >
+            <div class="border-b-2 focus-within:border-blue-900 relative">
+              <input
+                x-model="text"
+                class="
+                  block
+                  w-full
+                  appearance-none
+                  focus:outline-none
+                  bg-transparent
+                  peer
+                "
+                type="text"
+                name="text"
+                placeholder=" "
+              />
+              <label
+                class="
+                  absolute
+                  top-0
+                  z-[-1]
+                  peer-focus-within:text-blue-600
+                  peer-focus-within:scale-75
+                  peer-focus-within:-translate-y-4
+                  duration-300
+                  origin-[0]
+                  text-gray-400
+                "
+                for="text"
+                >text</label
+              >
+            </div>
+            <div x-text="port"></div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </body>
+</html>
